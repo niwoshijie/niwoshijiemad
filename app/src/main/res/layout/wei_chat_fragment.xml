@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/weichat_bg"
+    >
+
+    <FrameLayout
+        android:id="@+id/fl_wei_chat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        >
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/main_show_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        />
+
+    <LinearLayout
+            android:id="@+id/ll_wei_chat_ll"
+            android:orientation="vertical"
+            android:layout_alignParentBottom = "true"
+            android:layout_alignParentLeft = "true"
+            android:layout_marginLeft = "10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            >
+
+            <mainpagers.cpackage.quickpublish.pager.NumberProgressBar
+                android:id="@+id/pp_weichat_pp"
+                style="@style/NumberProgressBar_Passing_Green"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:visibility="invisible"
+                />
+            <TextView
+                android:text="微信扫码控制"
+                android:id="@+id/tv_er_control"
+                android:visibility="invisible"
+                android:textSize="15sp"
+                android:layout_gravity="center"
+                android:textColor="@color/status_red"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content"
+                />
+            <ImageView
+                android:id="@+id/iv_erimage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_head_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:visibility="invisible">
+            <ImageView
+                android:id="@+id/iv_head_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/ic_launcher"
+                />
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/tv_head_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/status_deep_orange"
+                android:text="名字"
+                />
+        </LinearLayout>
+
+
+</RelativeLayout>

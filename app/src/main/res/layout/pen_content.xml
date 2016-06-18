@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="-200dp"
+                android:layout_gravity="top"
+                android:background="@color/bg_blue_grey"
+                android:orientation="vertical">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:weightSum="10"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            >
+            <TextClock
+                android:id="@+id/tc_time"
+                android:gravity="center"
+                android:textColor="@color/white_text"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:format24Hour="yyyy-MM-dd \r\n kk:mm" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/action_deep_orange"
+        />
+
+    <TextView
+        android:text="设置"
+        android:layout_gravity="left|top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/setting_icon"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100px"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="1000dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="100dp"
+                android:text="@string/action_settings"
+                android:textColor="@android:color/black">
+            </TextView>
+
+            <!--<com.yunbiao.business.view.ProgressSeekBar-->
+                <!--android:id="@+id/pb1"-->
+                <!--style=".set@style/NumberProgressBar_Default"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:focusable="false"-->
+                <!--android:max="100"-->
+                <!--android:progressDrawable="@drawable/numberseekbar_background"-->
+                <!--android:thumb="@drawable/thumb_bar"/>-->
+
+            <SeekBar
+                android:id="@+id/seekbar1"
+                style="@style/Widget.SeekBar.Normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="10"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:minWidth="100dp"
+                android:text="声音"
+                android:textColor="@android:color/white">
+            </TextView>
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/voice_sub"
+                />
+
+            <SeekBar
+                android:id="@+id/seekbar2"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="wrap_content"
+                style="@style/Widget.SeekBar.Normal" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/voice_add"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="10"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:minWidth="100dp"
+                android:text="@string/action_settings"
+                android:textColor="@android:color/black">
+            </TextView>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/shine_bright"
+                />
+            <SeekBar
+                android:id="@+id/seekbar3"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                style="@style/Widget.SeekBar.Normal"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/shine_bright"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

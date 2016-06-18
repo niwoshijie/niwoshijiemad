@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_blue"
+            android:text="手机信息"
+            android:textColor="@color/white_text"
+            android:textSize="20sp"/>
+
+
+        <TextView
+            android:id="@+id/idExisted"
+            android:text="Sd卡存在状态"
+            android:textSize="20dp"
+            android:textColor="@color/action_green"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_tv_information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="CPU信息"
+            android:textColor="@color/action_green"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/tv_current_oriention"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="屏幕方向"
+            android:textColor="@color/action_green"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/tv_memory_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="内存空间"
+            android:textColor="@color/action_green"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/tv_memory_sizes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="空间"
+            android:textColor="@color/action_green"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/tv_memory_size2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="空间"
+            android:textColor="@color/action_green"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/btn_set_sys_all_time"
+            android:text="设置系统时间 2016-3-23-6-23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btn_set_sys_date"
+            android:text="设置系统时间 2016-5-25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btn_set_sys_time"
+            android:text="设置时间 3-12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <Button
+            android:id="@+id/btn_set_sys_time_second"
+            android:text="设置时间 年月日时分秒"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <Button
+            android:text="重启设备"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/reboot_system"/>
+
+        <TextView
+            android:id="@+id/tv_clander"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="系统时间"
+            android:textColor="@color/action_green"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/device_info"
+            android:text="设备信息"
+            android:textColor="@color/action_green"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/btn_shoudiantong"
+            android:text="手电筒"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
+
+
+
+</ScrollView>

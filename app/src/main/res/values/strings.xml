@@ -1,0 +1,83 @@
+<resources>
+    <string name="app_name">测试</string>
+    <string name="action_settings">设置主题</string>
+
+
+    <string name="menu_a">"自定义控件集合"</string>
+    <string name="menu_b">"自定义动画集合"</string>
+    <string name="menu_c">"自定义控件集合"</string>
+    <string name="menu_d">"自定义控件集合"</string>
+    <string name="menu_e">"自定义控件集合"</string>
+
+
+    <string name="menu_a_describe">"简介"</string>
+
+    <string-array name="drawer_items">
+        <item>主题样式</item>
+        <item>阴影和裁减</item>
+        <item>图片和颜色</item>
+        <item>全新的动画</item>
+        <item>新增widget</item>
+        <item>兼容适配</item>
+    </string-array>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">使用教程</string>
+
+    <string-array name="style_names">
+        <item>主题选择</item>
+        <item>default</item>
+        <item>default light</item>
+        <item>default light dark</item>
+        <item>red</item>
+        <item>pink</item>
+        <item>purple</item>
+        <item>deep purple</item>
+        <item>indigo</item>
+        <item>blue</item>
+        <item>light blue</item>
+        <item>cyan</item>
+        <item>teal</item>
+        <item>green</item>
+        <item>light green</item>
+        <item>lime</item>
+        <item>yellow</item>
+        <item>amber</item>
+        <item>orange</item>
+        <item>deep orange</item>
+        <item>brown</item>
+        <item>grey</item>
+        <item>blue grey</item>
+    </string-array>
+
+
+    <string name="qv_add">+</string>
+    <string name="qv_remove">-</string>
+
+    <string-array name="widget_names">
+        <item>横向列表</item>
+        <item>纵向列表</item>
+        <item>default light</item>
+        <item>default light dark</item>
+        <item>red</item>
+        <item>pink</item>
+        <item>purple</item>
+        <item>deep purple</item>
+        <item>indigo</item>
+        <item>blue</item>
+        <item>light blue</item>
+        <item>cyan</item>
+        <item>teal</item>
+        <item>green</item>
+        <item>light green</item>
+        <item>lime</item>
+        <item>yellow</item>
+        <item>amber</item>
+        <item>orange</item>
+        <item>deep orange</item>
+        <item>brown</item>
+        <item>grey</item>
+        <item>blue grey</item>
+    </string-array>
+
+</resources>

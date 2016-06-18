@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:background="@color/white_text"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_wifi_accout"
+            android:text="账号:"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/status_grey"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_wifi_secret"
+            android:text="密码:"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:textColor="@color/status_grey"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/wifi_scan_result"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="结果:"
+            android:gravity="center"
+            android:textColor="@color/status_grey"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"/>
+
+        <ProgressBar
+            android:id="@+id/pro_gressbar"
+            android:visibility="visible"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

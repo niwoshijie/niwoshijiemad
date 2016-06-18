@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="liushaobo.mad">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
+    <permission android:name="android.permission.REBOOT" />
+    <permission android:name="android.permission.SHUTDOWN" />
+    <permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <permission android:name="android.permission.UPDATE_DEVICE_STATS" />
+    <permission android:name="android.permission.INSTALL_LOCATION_PROVIDER" />
+
+    <application
+        android:name="base.APP"
+        android:allowBackup="true"
+        android:icon="@mipmap/ceshi_icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppStartLoad"
+        android:sharedUserId="xuandliuzhiniwoshijie">
+        <activity
+            android:name="first.FirstInActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AppStartLoad"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="mainpagers.cpackage.quickpublish.QuickActivity" />
+        <activity android:name="base.ComeInActivity" />
+        <activity android:name="mainpagers.cpackage.mediaFocusTest.MediaFocusActivity" />
+        <activity android:name="mainpagers.cpackage.mediaFocusTest.AudioFxDemo" />
+        <activity android:name="mainpagers.cpackage.drawerpackage.DrawerActivity" />
+        <activity android:name="mainpagers.cpackage.thriddeffect.TouchRotateActivity" />
+        <activity android:name="mainpagers.cpackage.serverScoket.ServerScoketActivity" />
+        <activity android:name="mainpagers.cpackage.appinformations.AppInforMation" />
+        <activity android:name="mainpagers.cpackage.stytlespackage.StytleActivity" />
+        <activity android:name="mainpagers.cpackage.userdefinepagerindicator.MyPageIndicator" />
+        <activity android:name="mainpagers.cpackage.pulllayout.PullLayoutActivity" />
+        <activity android:name="mainpagers.cpackage.eventbustest.EventBusActivity" />
+        <activity
+            android:name="mainpagers.cpackage.selfserviceapp.ybselfservice.SelfServiceActivity"
+            android:launchMode="singleTask"></activity>
+        <activity
+            android:name="mainpagers.cpackage.selfserviceapp.ybselfservice.DetialActivity"
+            android:launchMode="singleTop"></activity>
+        <activity android:name="mainpagers.cpackage.othertest.TestActivity" />
+
+        <service android:name="myservices.CallNumBerShow" />
+
+        <receiver android:name="broadcastreceivers.AlarmReceiver" />
+
+        <!-- &lt;!&ndash;插入U盘自动连接wifi&ndash;&gt; -->
+        <!-- <receiver android:name="broadcastreceivers.UsbReceiver"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="Intent.ACTION_MEDIA_SHARED"/> -->
+        <!-- <action android:name="Intent.ACTION_MEDIA_MOUNTED"/> -->
+        <!-- <action android:name="Intent.ACTION_MEDIA_UNMOUNTED"/> -->
+        <!-- <action android:name="Intent.ACTION_MEDIA_CHECKING"/> -->
+        <!-- <action android:name="Intent.ACTION_MEDIA_EJECT"/> -->
+        <!-- <action android:name="Intent.ACTION_MEDIA_REMOVED"/> -->
+        <!-- </intent-filter> -->
+        <!-- <meta-data android:name="file"/> -->
+        <!-- </receiver> -->
+
+        <activity android:name="mainpagers.cpackage.t23DesignMode.T23DesignMode" />
+        <activity android:name="mainpagers.cpackage.hardware.HardWareDemo"/>
+
+    </application>
+
+</manifest>

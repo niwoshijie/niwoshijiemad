@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/ll_dapager"
+              >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="大"
+        android:textSize="30sp"/>
+
+    <com.ant.liao.GifView
+        android:id="@+id/gif_test1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <com.ant.liao.GifView
+        android:id="@+id/gif_test2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <com.ant.liao.GifView
+        android:id="@+id/gif_test3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <mainpagers.cpackage.drawerpackage.GifView
+        android:id="@+id/gif_test4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        />
+    <mainpagers.cpackage.drawerpackage.GifView
+        android:id="@+id/gif_test5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        />
+
+</LinearLayout>

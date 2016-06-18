@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+            <ImageView
+                android:src="@mipmap/h31"
+                android:id="@+id/right_view_item_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:id="@+id/right_view_xinpin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/right_view_item_image"
+                android:layout_alignRight="@id/right_view_item_image"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/right_view_name"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="鸡腿虾堡"/>
+
+    <TextView
+        android:gravity="center"
+        android:text="10"
+        android:id="@+id/right_view_money"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

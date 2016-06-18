@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <mainpagers.cpackage.drawerpackage.circle.MyCircleMenu
+        android:id="@+id/circlemenu"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        />
+
+
+
+
+    <mainpagers.cpackage.drawerpackage.GifView
+        android:id="@+id/gif1"
+        android:layout_below="@+id/circlemenu"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:enabled="false" />
+
+    <mainpagers.cpackage.drawerpackage.GifView
+        android:id="@+id/gif2"
+        android:layout_above="@+id/gif1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:enabled="false" />
+
+
+
+
+
+    <SlidingDrawer android:layout_width="fill_parent"
+                   android:layout_height="wrap_content"
+                   android:handle="@+id/handle"
+                   android:content="@+id/content"
+
+                   android:orientation="vertical"
+                   android:id="@+id/slidingdrawer">
+
+        <ImageButton
+            android:id="@id/handle" android:layout_width="50dip"
+                     android:layout_height="44dip" android:src="@drawable/penl_down" />
+        <include android:id="@+id/content" layout="@layout/pen_content"/>
+
+    </SlidingDrawer>
+
+
+</RelativeLayout>

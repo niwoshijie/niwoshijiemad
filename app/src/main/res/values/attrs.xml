@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AutofitTextView">
+        <attr name="minTextSize" format="dimension" />
+        <attr name="precision" format="float" />
+        <attr name="sizeToFit" format="boolean" />
+    </declare-styleable>
+
+
+    <declare-styleable name="TasksProgressView">
+        <attr name="radius" format="dimension"/>
+        <attr name="strokeWidth" format="dimension"/>
+        <attr name="circleColor" format="color"/>
+        <attr name="ringColor" format="color"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="ScrollTextView">
+        <attr name="ScrollTextView_direction" format="integer" />
+        <attr name="ScrollTextView_speed" format="integer"/>
+    </declare-styleable>
+
+        <declare-styleable name="CircleImageView">
+            <attr name="civ_border_width" format="dimension" />
+            <attr name="civ_border_color" format="color" />
+            <attr name="civ_border_overlay" format="boolean" />
+            <attr name="civ_fill_color" format="color" />
+        </declare-styleable>
+
+    <declare-styleable name="NumberProgressBar">
+        <attr name="progress_current" format="integer"/>
+        <attr name="progress_max" format="integer"/>
+
+        <attr name="progress_unreached_color" format="color"/>
+        <attr name="progress_reached_color" format="color"/>
+
+        <attr name="progress_reached_bar_height" format="dimension"/>
+        <attr name="progress_unreached_bar_height" format="dimension"/>
+
+        <attr name="progress_text_size" format="dimension"/>
+        <attr name="progress_text_color" format="color"/>
+
+        <attr name="progress_text_offset" format="dimension"/>
+
+        <attr name="progress_text_visibility" format="enum">
+            <enum name="visible" value="0"/>
+            <enum name="invisible" value="1"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ProgressbarThemes">
+        <attr name="numberProgressBarStyle" format="reference"/>
+    </declare-styleable>
+
+    <attr name="item_count" format="integer"></attr>
+
+    <declare-styleable name="MyViewPagerIndicator">
+        <attr name="item_count" />
+    </declare-styleable>
+
+    <declare-styleable name="GifView">
+        <attr name="gif" format="reference" />
+        <attr name="paused" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="CustomTheme">
+        <attr name="gifViewStyle" format="reference" />
+    </declare-styleable>
+
+
+
+</resources>

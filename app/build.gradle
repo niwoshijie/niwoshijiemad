@@ -1,0 +1,89 @@
+apply plugin: 'com.android.application'
+
+
+try {
+    apply from: '../../../signing.gradle'
+} catch (ex) {
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '23.0.1'
+    defaultConfig {
+        applicationId "liushaobo.mad"
+        minSdkVersion 17
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.1"
+
+            // This is important, it will run lint checks but won't abort build
+            lintOptions {
+                abortOnError false
+            }
+        }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    // 渠道打包（不同包名）
+    productFlavors {}
+
+    sourceSets {
+
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+        instrumentTest.setRoot('tests')
+    }
+
+    signingConfigs {
+        // your debug keystore
+        debug {
+//            storeFile file("debug.keystore")
+        }
+
+        myConfigs {
+//            storeFile file("签名文件地址")
+//            keyAlias "..."
+//            keyPassword "..."
+//            storePassword "..."
+        }
+
+    }
+
+}
+
+
+dependencies {
+    compile project(':library')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:design:23.1.1'
+    compile 'com.android.support:gridlayout-v7:23.1.1'
+    compile 'com.android.support:cardview-v7:23.1.1'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:palette-v7:23.1.1'
+    compile project(':xutils')
+    compile files('libs/androidannotations-api-3.1.jar')
+    compile 'com.android.support:percent:22.2.0'
+    compile 'com.android.support:support-annotations:23.1.1'
+    // used to showcase how to load images
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.github.bumptech.glide:glide:3.6.1'
+    // icon fonts used inside the sample
+    // https://github.com/mikepenz/Android-Iconics
+    compile 'com.mikepenz:google-material-typeface:2.2.0.1@aar'
+    compile 'com.mikepenz:fontawesome-typeface:4.4.0.1@aar'
+    compile 'com.mikepenz:octicons-typeface:3.0.0.1@aar'
+    compile 'com.jakewharton:butterknife:5.1.1'
+    compile files('libs/GifView.jar')
+    compile 'com.android.support:palette-v7:22.2.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.android.support:recyclerview-v7:24.0.0-alpha1'
+    compile 'com.wdullaer:materialdatetimepicker:1.2.1'
+}
+
+
