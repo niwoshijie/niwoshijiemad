@@ -16,50 +16,54 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by LiuShao on 2016/1/26.
- */
-public class AutoScrollTextView extends TextView{
+import base.APP;
+import utils.Utils;
+
+
+public class MyTextView extends TextView {
 
     private static final Boolean Debug = Boolean.valueOf(false);
-    private static final String TAG = AutoScrollTextView.class.getSimpleName();
-    private int mDirection = 3;//向下滚动0,向左滚动3,向右滚动2,向上滚动1
+
+    private int mDirection = 3;//向上滚动0,向左滚动3,向右滚动2,向上滚动1
     private int mScrollSpeed = 1; //2高速,0低速,1中速,3更高速，4更更高速
 
     private int mWholeLen = 0;
     private Paint mPaint = null;
-    private final AutoScrollTextView.TextMoveHandler moveHandler = new AutoScrollTextView.TextMoveHandler(this);
+    private final MyTextView.TextMoveHandler moveHandler = new MyTextView.TextMoveHandler(this);
     private float step = 0.0F;
     private String text = "";
     private List<String> textList = new ArrayList();
     private float width = 0.0F;
     private float y_coordinate = 0.0F;
 
-    public AutoScrollTextView(Context context) {
+    public MyTextView(Context context) {
         super(context);
+
         this.init((AttributeSet)null, 0);
     }
 
-    public AutoScrollTextView(Context context, AttributeSet attrs) {
+    public MyTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.init(attrs, 0);
     }
 
-    public AutoScrollTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public MyTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.init(attrs, defStyleAttr);
+
     }
 
     private void init(AttributeSet paramAttributeSet, int attrs) {
         this.mDirection = 0;
         this.mScrollSpeed = 1;
-        this.setOnTouchListener(new AutoScrollTextView.TextTouchListener());
+        this.setOnTouchListener(new MyTextView.TextTouchListener());
     }
 
     private void update() {
         this.mPaint = this.getPaint();
         this.mPaint.setColor(this.getCurrentTextColor());
         this.text = this.getText().toString();
+
     }
 
     /**
@@ -67,8 +71,10 @@ public class AutoScrollTextView extends TextView{
      * @return
      */
     public void setScrollSpeed(float scrollSpeed) {
+        //2高速,0低速,1中速,3更高速，4更更高速
+        Log.e("滚动速度",""+scrollSpeed);
         if(scrollSpeed == 0.2){
-            this.mScrollSpeed = 0;
+            this.mScrollSpeed = -1;
         }else if(scrollSpeed == 0.5){
             this.mScrollSpeed = 0;
         }else if(scrollSpeed == 1){
@@ -76,7 +82,7 @@ public class AutoScrollTextView extends TextView{
         }else if(scrollSpeed == 2){
             this.mScrollSpeed = 2;
         }else if(scrollSpeed == 3){
-            this.mScrollSpeed = 2;
+            this.mScrollSpeed = 3;
         }else{
             this.mScrollSpeed = 1;
         }
@@ -114,6 +120,7 @@ public class AutoScrollTextView extends TextView{
     }
 
     public void onDraw(Canvas canvas) {
+
         if(this.textList.size() != 0) {
             if(this.mDirection == 0) {
                 for(int i = 0; i  < this.textList.size(); ++i ) {
@@ -153,9 +160,8 @@ public class AutoScrollTextView extends TextView{
                     if(this.step >= (float)(this.getWidth() + this.mWholeLen)) {
                         this.step = 0.0F;
                     }
-
                     setSpeed(this.mScrollSpeed);
-
+                    Log.e("step:", "this.step:"+this.step);
                     canvas.drawText(this.text, (float)this.getWidth() - this.step, this.y_coordinate, this.mPaint);
                     return;
                 }
@@ -163,24 +169,59 @@ public class AutoScrollTextView extends TextView{
         }
     }
 
-
     private void setSpeed(int mScrollSpeed){
-        switch(mScrollSpeed){
-            case 0:
-                this.step += 0.5F;
-                break;
-            case 1:
-                ++this.step;
-                break;
-            case 2:
-                this.step += 1.5F;
-                break;
-            case 3:
-                this.step += 2.0F;
-                break;
-            case 4:
-                this.step += 2.5F;
+//        float textSize = CommonUtils.px2dip(APP.getContext(), this.mPaint.getTextSize());
+//
+//        float textSizeTemp = textSize - 44 ;
+//        if (textSizeTemp <= 0) {
+//            textSizeTemp = 0;
+//        } else {
+//            textSizeTemp = textSizeTemp/20 ;
+//        }
+//        Log.e("textSizeTemp!!!!", "textSizeTemp:" + textSizeTemp);
+
+        float textSize = Utils.px2dip(APP.mAppApplication, this.mPaint.getTextSize());
+        if(textSize<44){
+            switch(mScrollSpeed){
+                case 0:
+                    this.step += 0.5F;
+                    break;
+                case 1:
+                    ++this.step;
+                    break;
+                case 2:
+                    this.step += 1.5F;
+                    break;
+                case 3:
+                    this.step += 2.0F;
+                    break;
+                case 4:
+                    this.step += 2.5F;
+            }
+        }else{
+            switch(mScrollSpeed){
+                case 0:
+                    float textSizeTemp = textSize/66;
+                    this.step += textSizeTemp ;
+                    break;
+                case 1:
+                    float textSizeTemp1 = textSize/44 ;
+                    this.step += textSizeTemp1 ;
+                    break;
+                case 2:
+                    float textSizeTemp2 = textSize/22 ;
+                    this.step += textSizeTemp2;
+                    break;
+                case 3:
+                    float textSizeTemp3 = textSize/11 ;
+                    this.step += textSizeTemp3;
+                    break;
+                case -1:
+                    float textSizeTemp4 = textSize/88 ;
+                    this.step += textSizeTemp4;
+            }
         }
+
     }
 
     protected void onMeasure(int context, int attrs) {
@@ -190,8 +231,8 @@ public class AutoScrollTextView extends TextView{
         }
 
         this.update();
-        this.width = (float) View.MeasureSpec.getSize(context) - 25;
-        if(View.MeasureSpec.getMode(context) != View.MeasureSpec.EXACTLY) {
+        this.width = (float) MeasureSpec.getSize(context) - 25;
+        if(MeasureSpec.getMode(context) != MeasureSpec.EXACTLY) {
             throw new IllegalStateException("ScrollLayout only can mCurScreen run at EXACTLY mode!");
         } else {
             float width = 0.0F;
@@ -233,9 +274,9 @@ public class AutoScrollTextView extends TextView{
                 }
 
                 Paint.FontMetricsInt fontMetricsInt = this.mPaint.getFontMetricsInt();
-                this.y_coordinate = (float)(View.MeasureSpec.getSize(attrs) / 2 - (fontMetricsInt.bottom - fontMetricsInt.top) / 2 - fontMetricsInt.top);
+                this.y_coordinate = (float)(MeasureSpec.getSize(attrs) / 2 - (fontMetricsInt.bottom - fontMetricsInt.top) / 2 - fontMetricsInt.top);
                 if(Debug.booleanValue()) {
-                    Log.d(TAG, "y_coordinate:\t" + this.y_coordinate + "\n" + "height:\t" + this.getHeight() + "\n" + "width:\t" + this.getWidth() + "\n" + "measureWidth:\t" + View.MeasureSpec.getSize(context) + "\n" + "measureHeight:\t" + View.MeasureSpec.getSize(attrs) + "\n");
+                    Log.d(TAG, "y_coordinate:\t" + this.y_coordinate + "\n" + "height:\t" + this.getHeight() + "\n" + "width:\t" + this.getWidth() + "\n" + "measureWidth:\t" + MeasureSpec.getSize(context) + "\n" + "measureHeight:\t" + MeasureSpec.getSize(attrs) + "\n");
                     return;
                 }
             }
@@ -267,22 +308,24 @@ public class AutoScrollTextView extends TextView{
         }
     }
 
+    private static final String TAG = "MyTextView";
 
     private static class TextMoveHandler extends Handler {
-        private final WeakReference<AutoScrollTextView> mScroll;
+        private final WeakReference<MyTextView> mScroll;
 
-        public TextMoveHandler(AutoScrollTextView obj) {
-            this.mScroll = new WeakReference(obj);
+        public TextMoveHandler(MyTextView context) {
+            this.mScroll = new WeakReference(context);
         }
 
         public void handleMessage(Message context) {
             switch(context.what) {
+
                 case 0:
-                    AutoScrollTextView attrs = (AutoScrollTextView)this.mScroll.get();
+                    Log.d(TAG, "handleMessage: ");
+                    MyTextView attrs = (MyTextView)this.mScroll.get();
                     if(attrs != null) {
                         attrs.invalidate();
                     }
-
                     this.sendMessageDelayed(this.obtainMessage(0), 33L);
                     return;
                 default:
@@ -291,7 +334,7 @@ public class AutoScrollTextView extends TextView{
         }
     }
 
-    private class TextTouchListener implements View.OnTouchListener {
+    private class TextTouchListener implements OnTouchListener {
         private static final int DRAG_MODE = 1;
         private static final int NONE_MODE = 0;
         private int mMode;
@@ -307,17 +350,17 @@ public class AutoScrollTextView extends TextView{
         public boolean onTouch(View context, MotionEvent event) {
             switch(255 & event.getAction()) {
                 case 0:
-                    if(AutoScrollTextView.Debug.booleanValue()) {
-                        Log.d(AutoScrollTextView.TAG, "ACTION_DOWN");
+                    if(MyTextView.Debug.booleanValue()) {
+                        Log.d(MyTextView.TAG, "ACTION_DOWN");
                     }
 
                     this.startPoint = new PointF(event.getX(), event.getY());
-                    this.start_step = AutoScrollTextView.this.step;
+                    this.start_step = MyTextView.this.step;
                     this.mMode = 1;
                     return true;
                 case 1:
-                    if(AutoScrollTextView.Debug.booleanValue()) {
-                        Log.d(AutoScrollTextView.TAG, "ACTION_UP");
+                    if(MyTextView.Debug.booleanValue()) {
+                        Log.d(MyTextView.TAG, "ACTION_UP");
                     }
 
                     this.startPoint = null;
@@ -325,12 +368,12 @@ public class AutoScrollTextView extends TextView{
                     this.mMode = 0;
                     return true;
                 case 2:
-                    if(AutoScrollTextView.Debug.booleanValue()) {
-                        Log.d(AutoScrollTextView.TAG, "ACTION_MOVE");
+                    if(MyTextView.Debug.booleanValue()) {
+                        Log.d(MyTextView.TAG, "ACTION_MOVE");
                     }
 
                     if(this.mMode == 1) {
-                        int direction = AutoScrollTextView.this.mDirection;
+                        int direction = MyTextView.this.mDirection;
                         float i = 0.0F;
                         switch(direction) {
                             case 0:
@@ -346,8 +389,8 @@ public class AutoScrollTextView extends TextView{
                                 i = this.startPoint.x - event.getX();
                         }
 
-                        AutoScrollTextView.this.step = i + this.start_step;
-                        AutoScrollTextView.this.invalidate();
+                        MyTextView.this.step = i + this.start_step;
+                        MyTextView.this.invalidate();
                         return true;
                     }
                 default:

@@ -2,7 +2,6 @@ package mainpagers.cpackage;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Rect;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +9,7 @@ import android.view.View;
 
 import base.ContantValue;
 import base.RecycleAdapter;
+import base.SpacesItemDecoration;
 import liushaobo.mad.R;
 import mainpagers.BasePager;
 /**
@@ -53,22 +53,6 @@ public class CPager extends BasePager {
                 startIntent(ContantValue.objects[position]);
             }
         });
-    }
-
-    public class SpacesItemDecoration extends RecyclerView.ItemDecoration {
-        private int space;
-        public SpacesItemDecoration(int space) {
-            this.space = space;
-        }
-        @Override
-        public void getItemOffsets(Rect outRect, View view,RecyclerView parent, RecyclerView.State state) {
-            outRect.left = space;
-            outRect.right = space;
-            outRect.bottom = space;
-            // Add top margin only for the first item to avoid double space between items
-            if(parent.getChildPosition(view) == 0)
-                outRect.top = space;
-            }
     }
 
     /**

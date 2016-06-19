@@ -40,7 +40,6 @@ import base.APP;
 
 public class CommonUtils {
 
-
     /**
      * 获取现在时间
      * @return 返回短时间字符串格式yyyy-MM-dd HH:mm:ss

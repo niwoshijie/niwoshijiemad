@@ -17,7 +17,6 @@ public class T23DesignMode extends Activity implements View.OnClickListener {
 
     private Button btn_1;
     private Button btn_2;
-
     private Mode mode;
 
     @Override

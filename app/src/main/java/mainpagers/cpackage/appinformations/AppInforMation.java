@@ -176,7 +176,6 @@ public class AppInforMation extends BaseActivity{
         return String.valueOf(usedSize/1024/1024);
     }
 
-
     private void testClander(boolean isRCT) {
         Calendar mCalendar = Calendar.getInstance();
         int mHour = mCalendar.get(Calendar.HOUR_OF_DAY);

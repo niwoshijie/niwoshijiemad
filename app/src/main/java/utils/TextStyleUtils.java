@@ -33,5 +33,22 @@ public class TextStyleUtils {
         return spannable;
     }
 
+    /**
+     * 关键字高亮显示
+     * @param
+     */
+    public static SpannableString hightLightString(String message){
+        SpannableString spannable = new SpannableString(message);
+        CharacterStyle span = null;
+        if(message.contains(".")){
+            int poitionLocation = message.indexOf(".");
+            span = new ForegroundColorSpan(Color.RED);//需要标红
+//          spannable.setSpan(span, m.start(),  m.end(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            spannable.setSpan(new RelativeSizeSpan(2.0f), 0,poitionLocation, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            return spannable;
+        }else{
+            return null;
+        }
+    }
 
 }

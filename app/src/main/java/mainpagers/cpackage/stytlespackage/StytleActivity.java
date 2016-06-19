@@ -57,11 +57,9 @@ public class StytleActivity extends BaseActivity{
         x.image().bind(gif_imageview,getAssets()+"/maoyeye.gif");
     }
 
-
     private void playText() {
         tv_stytle.setText(TextStyleUtils.highlight("带有数字(86)的样式"));
     }
-
 
     private void aabcc() {
 

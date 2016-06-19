@@ -3,10 +3,22 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/mao_pager_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </TextView>
+    <ImageView
+        android:id="@+id/mao_pager_item_iamge"
+        android:src="@mipmap/h1"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/mao_pager_item_tv"
+        android:text="选显卡"
+        android:layout_marginTop="@dimen/all_dimen_margin"
+        android:gravity="center"
+        android:textSize="@dimen/common_text_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

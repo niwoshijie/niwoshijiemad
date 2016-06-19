@@ -8,6 +8,7 @@ import android.view.View;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+import base.SpacesItemDecoration;
 import liushaobo.mad.R;
 import mainpagers.BasePager;
 

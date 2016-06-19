@@ -6,10 +6,28 @@
 
     <TextView
         android:id="@+id/tv_test"
-        android:textSize="16sp"
+        android:textSize="36sp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"/>
 
+    <views.textviews.AutoScrollTextView
+        android:id="@+id/v_tv_astv"
+        android:textSize="36sp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        />
 
+    <views.textviews.ScrollTextView
+        android:id="@+id/v_tv_stv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        />
+
+    <views.textviews.MyTextView
+        android:id="@+id/v_tv_mytv"
+        android:textSize="50sp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        />
 
 </LinearLayout>

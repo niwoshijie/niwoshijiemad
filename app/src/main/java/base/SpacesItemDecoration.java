@@ -1,4 +1,4 @@
-package mainpagers.mpackage;
+package base;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
