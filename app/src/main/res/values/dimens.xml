@@ -18,5 +18,8 @@
 
     <dimen name="list_view_item_height">20px</dimen>
     <dimen name="bottom_text_size">25px</dimen>
+    
+    <dimen name="all_dimen_margin">20dp</dimen>
+    <dimen name="common_text_size">20sp</dimen>
 
 </resources>
