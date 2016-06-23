@@ -38,7 +38,6 @@ public class MyTextView extends TextView {
 
     public MyTextView(Context context) {
         super(context);
-
         this.init((AttributeSet)null, 0);
     }
 
@@ -50,7 +49,6 @@ public class MyTextView extends TextView {
     public MyTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.init(attrs, defStyleAttr);
-
     }
 
     private void init(AttributeSet paramAttributeSet, int attrs) {
@@ -63,7 +61,6 @@ public class MyTextView extends TextView {
         this.mPaint = this.getPaint();
         this.mPaint.setColor(this.getCurrentTextColor());
         this.text = this.getText().toString();
-
     }
 
     /**
@@ -96,7 +93,6 @@ public class MyTextView extends TextView {
         this.mDirection = direction;
     }
 
-
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         if(Debug.booleanValue()) {
@@ -105,7 +101,6 @@ public class MyTextView extends TextView {
         if(this.moveHandler != null) {
             this.moveHandler.sendMessage(this.moveHandler.obtainMessage(0));
         }
-
     }
 
     protected void onDetachedFromWindow() {

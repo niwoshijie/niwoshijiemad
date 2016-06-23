@@ -7,13 +7,24 @@
     <Button
         android:id="@+id/btn_bulb_open"
         android:text="开灯"
+        android:background="@drawable/btn_ok_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
+        android:layout_marginTop="5dp"
         android:id="@+id/btn_bulb_close"
         android:text="关灯"
+        android:background="@drawable/btn_ok_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_marginTop="5dp"
+        android:id="@+id/btn_call_cramer"
+        android:background="@drawable/btn_ok_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="调用摄像头"/>
 
 </LinearLayout>

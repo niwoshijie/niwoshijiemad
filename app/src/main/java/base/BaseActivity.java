@@ -1,6 +1,8 @@
 package base;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,7 +14,7 @@ import android.view.WindowManager;
 import liushaobo.mad.R;
 import mainpagers.cpackage.selfserviceapp.ybselfservice.AppActivityManager;
 
-public abstract  class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,6 +125,36 @@ public abstract  class BaseActivity extends AppCompatActivity {
             winParams.flags &= ~bits;
         }
         win.setAttributes(winParams);
+    }
+
+
+
+    /**
+     * 通过Class跳转界面
+     *
+     * @param cls
+     */
+    protected void startNextActivity(Activity activity, Class<?> cls) {
+        if (activity == null || cls == null) {
+            return;
+        }
+        startActivity(activity, cls, null);
+    }
+
+    /**
+     * 含有Bundle通过Class跳转界面
+     * @param cls
+     */
+    protected void startActivity(Activity activity, Class<?> cls, Bundle bundle) {
+        if (activity == null || cls == null) {
+            return;
+        }
+        Intent intent = new Intent();
+        intent.setClass(activity, cls);
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
+        activity.startActivity(intent);
     }
 
 }

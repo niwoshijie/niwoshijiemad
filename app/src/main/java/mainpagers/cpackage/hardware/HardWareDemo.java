@@ -31,7 +31,7 @@ public class HardWareDemo extends BaseActivity {
 
     }
 
-    @Event(value = {R.id.btn_bulb_open,R.id.btn_bulb_close}, type = View.OnClickListener.class)
+    @Event(value = {R.id.btn_bulb_open,R.id.btn_bulb_close,R.id.btn_call_cramer}, type = View.OnClickListener.class)
     private void onClick(View view){
         switch (view.getId()){
             case R.id.btn_bulb_close:
@@ -39,6 +39,9 @@ public class HardWareDemo extends BaseActivity {
                 break;
             case R.id.btn_bulb_open:
                 bulbLight.setFlashlightEnabled(true);
+                break;
+            case R.id.btn_call_cramer:
+                startNextActivity(HardWareDemo.this,CramerActivity.class);
                 break;
         }
 
