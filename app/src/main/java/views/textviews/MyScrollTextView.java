@@ -373,11 +373,11 @@ public class MyScrollTextView extends SurfaceView implements SurfaceHolder.Callb
 
 
     private static Context context;
-    private static String text;
-    private static int textColor;
-    private static int backColor;
+    private static String text;//要显示的文字
+    private static int textColor;//文字颜色
+    private static int backColor;//背景色
     private static int mDirection;//向上滚动0,向左滚动3,向右滚动2,向上滚动1
-    private static int textSize;
+    private static int textSize;//文字的大小
     private static int mScrollSpeed;//2高速,0低速,1中速,3更高速，4更更高速
     private static int fontFamily;//字体样式
 //    public MyScrollTextView(Context context) {
@@ -409,8 +409,8 @@ public class MyScrollTextView extends SurfaceView implements SurfaceHolder.Callb
         this.mDirection = builder.mDirection;
         this.mScrollSpeed = builder.mScrollSpeed;
         this.fontFamily = builder.fontFamily;
-        mPaint = new Paint();
 
+        mPaint = new Paint();
         mPaint.setColor(textColor);
         mPaint.setTextSize(textSize);
         setTextFont(fontFamily);

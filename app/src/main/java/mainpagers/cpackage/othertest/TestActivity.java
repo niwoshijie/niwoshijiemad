@@ -70,13 +70,13 @@ public class TestActivity extends BaseActivity {
 
 
         scrollTextView = new MyScrollTextView.Builder()
-                .setBackColor(Color.BLACK)
                 .setmScrollSpeed(3)
                 .setTextColor(Color.RED)
                 .setTextSize(30)
                 .setTextString(testString)
                 .setmDirection(3)
                 .setFontFamily(0)
+                .setBackColor(Color.BLACK)
                 .setContext(context)
                 .build();
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,200);

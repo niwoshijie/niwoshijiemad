@@ -8,7 +8,7 @@ try {
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '23.0.1'
+    buildToolsVersion '23.0.3'
     defaultConfig {
         applicationId "liushaobo.mad"
         minSdkVersion 17
@@ -80,10 +80,10 @@ dependencies {
     compile 'com.mikepenz:octicons-typeface:3.0.0.1@aar'
     compile 'com.jakewharton:butterknife:5.1.1'
     compile files('libs/GifView.jar')
-    compile 'com.android.support:palette-v7:22.2.0'
-    compile 'org.greenrobot:eventbus:3.0.0'
-    compile 'com.android.support:recyclerview-v7:24.0.0-alpha1'
     compile 'com.wdullaer:materialdatetimepicker:1.2.1'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.android.support:recyclerview-v7:23.2.1'
+    compile 'com.android.support:palette-v7:23.2.1'
 }
 
 
