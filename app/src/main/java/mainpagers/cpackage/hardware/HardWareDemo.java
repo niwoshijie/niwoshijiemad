@@ -2,7 +2,6 @@ package mainpagers.cpackage.hardware;
 
 import android.view.KeyEvent;
 import android.view.View;
-
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.x;
@@ -21,14 +20,11 @@ public class HardWareDemo extends BaseActivity {
     }
 
     @Override
-    public void setListener() {
-
-    }
+    public void setListener() {}
 
     @Override
     protected void initData() {
         bulbLight = new BulbLight();
-
     }
 
     @Event(value = {R.id.btn_bulb_open,R.id.btn_bulb_close,R.id.btn_call_cramer}, type = View.OnClickListener.class)
@@ -44,7 +40,6 @@ public class HardWareDemo extends BaseActivity {
                 startNextActivity(HardWareDemo.this,CramerActivity.class);
                 break;
         }
-
     }
 
     public boolean onKeyDown(int kCode, KeyEvent kEvent) {
@@ -56,6 +51,5 @@ public class HardWareDemo extends BaseActivity {
         }
         return super.onKeyDown(kCode, kEvent);
     }
-
 
 }

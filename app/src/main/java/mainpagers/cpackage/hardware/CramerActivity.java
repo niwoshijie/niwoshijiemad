@@ -55,8 +55,7 @@ public class CramerActivity extends BaseActivity implements SurfaceHolder.Callba
     }
 
     @Override
-    public void setListener() {
-    }
+    public void setListener() {}
 
     @Override
     protected void initData() {
@@ -145,7 +144,6 @@ public class CramerActivity extends BaseActivity implements SurfaceHolder.Callba
     public void surfaceDestroyed(SurfaceHolder holder) {
         stopCamera();
         mCamera.release();
-        mCamera = null;
     }
 
     /* 拍照的method */
@@ -229,7 +227,7 @@ public class CramerActivity extends BaseActivity implements SurfaceHolder.Callba
                  * 设定相片大小为1024*768， 格式为JPG
                  */
                 // parameters.setPictureFormat(PixelFormat.JPEG);
-                parameters.setPictureSize(1024, 768);
+//                 parameters.setPictureSize(1024, 768);
                 mCamera.setParameters(parameters);
                 /* 打开预览画面 */
                 mCamera.startPreview();
@@ -244,6 +242,7 @@ public class CramerActivity extends BaseActivity implements SurfaceHolder.Callba
         if (mCamera != null) {
             try {
                 /* 停止预览 */
+                mCamera.setPreviewCallback(null) ;
                 mCamera.stopPreview();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -265,14 +264,9 @@ public class CramerActivity extends BaseActivity implements SurfaceHolder.Callba
 
     // 每次cam采集到新图像时调用的回调方法，前提是必须开启预览
     class priviewCallBack implements Camera.PreviewCallback {
-
         @Override
         public void onPreviewFrame(byte[] data, Camera camera) {
-            // TODO Auto-generated method stub
-            // Log.w("wwwwwwwww", data[5] + "");
-            // Log.w("支持格式", mCamera.getParameters().getPreviewFormat()+"");
             decodeToBitMap(data, camera);
-
         }
     }
 

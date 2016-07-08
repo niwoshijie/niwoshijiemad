@@ -18,6 +18,9 @@
     <uses-permission android:name="android.permission.CAMERA" />
 
 
+    <!--硬件加速方案-->
+    <!--android:hardwareAccelerated="true"-->
+
     <application
         android:name="base.APP"
         android:allowBackup="true"
@@ -25,7 +28,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppStartLoad"
-        android:sharedUserId="xuandliuzhiniwoshijie">
+        android:sharedUserId="xuandliuzhiniwoshijie"
+        >
         <activity
             android:name="first.FirstInActivity"
             android:configChanges="orientation|keyboardHidden"
@@ -38,7 +42,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="mainpagers.cpackage.quickpublish.QuickActivity" />
+        <activity android:name="mainpagers.cpackage.quickpublish.QuickActivity"
+            android:hardwareAccelerated="false"
+            />
         <activity android:name="base.ComeInActivity" />
         <activity android:name="mainpagers.cpackage.mediaFocusTest.MediaFocusActivity" />
         <activity android:name="mainpagers.cpackage.mediaFocusTest.AudioFxDemo" />
@@ -74,11 +80,9 @@
         <!-- </intent-filter> -->
         <!-- <meta-data android:name="file"/> -->
         <!-- </receiver> -->
-
         <activity android:name="mainpagers.cpackage.t23DesignMode.T23DesignMode" />
         <activity android:name="mainpagers.cpackage.hardware.HardWareDemo"/>
         <activity android:name="mainpagers.cpackage.hardware.CramerActivity"/>
-
 
     </application>
 

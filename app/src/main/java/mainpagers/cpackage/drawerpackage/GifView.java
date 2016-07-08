@@ -95,11 +95,12 @@ public class GifView extends View {
         try {
             is = new BufferedInputStream(new FileInputStream(path), 16 * 1024);
             is.mark(16 * 1024);
+            mMovie = Movie.decodeStream(is);
+            requestLayout();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        mMovie = Movie.decodeStream(is);
-        requestLayout();
+
     }
 
 

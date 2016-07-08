@@ -3,6 +3,7 @@ package mainpagers.cpackage.othertest;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.ViewGroup;
+import android.widget.AbsoluteLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import liushaobo.mad.R;
 import utils.TextStyleUtils;
 import views.textviews.AutoScrollTextView;
 import views.textviews.MyScrollTextView;
+import views.textviews.MyScrollTextView2;
 import views.textviews.MyTextView;
 import views.textviews.ScrollTextView;
 
@@ -83,9 +85,18 @@ public class TestActivity extends BaseActivity {
         scrollTextView.setLayoutParams(params);
         c_pager_tt_ll.addView(scrollTextView);
 
+        AbsoluteLayout.LayoutParams layoutParams= new AbsoluteLayout.LayoutParams(1920, 200, 0,600);
+        MyScrollTextView2 marquee = new MyScrollTextView2(context);
+        marquee.setText("小乔大逗比，小乔大逗比，小乔大逗比，小乔大逗比小乔大逗比小乔大逗比，小乔大逗比，小乔大逗比，小乔大逗比小乔大逗比小乔大逗比，小乔大逗比");
+        marquee.setTextSize(300);
+        marquee.setTextColor(Color.RED);
+        marquee.setBackColor(Color.BLACK);
+        marquee.setDirection(2);
+        marquee.setScrollSpeed(3);
+        marquee.setTextFont(1);
+        marquee.setLayoutParams(layoutParams);
+        c_pager_tt_ll.addView(marquee);
     }
-
-
 
 
 

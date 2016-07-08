@@ -11,6 +11,7 @@ public class ConcreateFactory extends Factory{
 //        return new ConcreteProductA();
 //    }
 
+
     @Override
     public <T extends Product> T createProduct(Class<T> clz) {
        Product p = null;

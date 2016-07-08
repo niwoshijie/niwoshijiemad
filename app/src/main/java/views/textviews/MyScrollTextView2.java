@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.Typeface;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -17,9 +18,9 @@ import java.util.List;
 import utils.Utils;
 
 /**
- * Created by LiuShao on 2016/6/22.
+ * Created by LiuShao on 2016/6/27.
  */
-public class MyScrollTextView extends SurfaceView implements SurfaceHolder.Callback, Runnable {
+public class MyScrollTextView2 extends SurfaceView implements SurfaceHolder.Callback, Runnable{
 
     private SurfaceHolder mHolder;
     /**
@@ -33,7 +34,8 @@ public class MyScrollTextView extends SurfaceView implements SurfaceHolder.Callb
     private boolean isRunning;
 
     private static final Boolean Debug = Boolean.valueOf(false);
-
+    private int mDirection = 3;//向上滚动0,向左滚动3,向右滚动2,向上滚动1
+    private int mScrollSpeed = 1; //2高速,0低速,1中速,3更高速，4更更高速
     private int mWholeLen = 0;
     private Paint mPaint = null;
     private float step = 0.0F;
@@ -41,10 +43,49 @@ public class MyScrollTextView extends SurfaceView implements SurfaceHolder.Callb
     private float width = 0.0F;
     private float y_coordinate = 0.0F;
 
+    private String text = "";
+    private int textColor;
+    private int backColor;
+    private int textSize;
+
+    public MyScrollTextView2(Context context) {
+        this(context, null);
+    }
+
+    public MyScrollTextView2(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        mHolder = getHolder();
+        mHolder.addCallback(this);
+        mPaint = new Paint();
+        //设置可获得焦点
+        setFocusable(true);
+        setFocusableInTouchMode(true);
+        //设置常亮
+        this.mDirection = 3;
+        this.mScrollSpeed = 3;
+        this.setOnTouchListener(new MyScrollTextView2.TextTouchListener());
+    }
+
+    public void setTextColor(int textColor) {
+        this.textColor = textColor;
+        mPaint.setColor(textColor);
+    }
+
+    public void setBackColor(int backColor) {
+        this.backColor = backColor;
+    }
+
+    public void setTextSize(int textSize) {
+        this.textSize = textSize;
+        mPaint.setTextSize(textSize);
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
 
     /**
      * 设置滚动速度
-     *
      * @return
      */
     public void setScrollSpeed(float scrollSpeed) {
@@ -73,6 +114,16 @@ public class MyScrollTextView extends SurfaceView implements SurfaceHolder.Callb
         this.mDirection = direction;
     }
 
+
+    /**
+     * 设置文本字体
+     */
+    public void setTextFont(int a) {
+        Typeface typeFace = Typeface.createFromAsset(getContext().getAssets(), "fonts/" + fonts[a]);
+        mPaint.setTypeface(typeFace);
+    }
+    public static String[] fonts = new String[]{"song.ttf", "kai.ttf"};
+
     /**
      * 用于绘制的线程
      */
@@ -80,26 +131,23 @@ public class MyScrollTextView extends SurfaceView implements SurfaceHolder.Callb
 
     /**
      * 处理开始
-     *
      * @param holder
      */
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         // 开启线程
-        Log.d(TAG, "surfaceCreated: --");
         isRunning = true;
+        Log.d(TAG, "surfaceCreated: -----------");
         t = new Thread(this);
         t.start();
     }
 
     //销毁时激发，一般在这里将画图的线程停止、释放。
     @Override
-    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-    }
+    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {}
 
     /**
      * 处理结束
-     *
      * @param holder
      */
     @Override
@@ -123,7 +171,6 @@ public class MyScrollTextView extends SurfaceView implements SurfaceHolder.Callb
             try {
                 // 获得canvas
                 mCanvas = mHolder.lockCanvas();
-
                 if (mCanvas != null) {
 
                     mCanvas.drawColor(backColor);
@@ -180,10 +227,8 @@ public class MyScrollTextView extends SurfaceView implements SurfaceHolder.Callb
 
             } finally {
                 if (mCanvas != null) {
-
                     mHolder.unlockCanvasAndPost(mCanvas);
-
-                    //清除画布
+//清除画布
 //              mPaint.setXfermode(new PorterDuffXfermode(android.graphics.PorterDuff.Mode.CLEAR));
 //              mCanvas.drawPaint(mPaint);
 //              mPaint.setXfermode(new PorterDuffXfermode(android.graphics.PorterDuff.Mode.DST_OVER));
@@ -233,7 +278,7 @@ public class MyScrollTextView extends SurfaceView implements SurfaceHolder.Callb
                 case 3:
 //                  float textSizeTemp3 = textSize / 11;
 //                  this.step += textSizeTemp3;
-                    this.step += 20;
+                    this.step += 10;
                     break;
                 case -1:
                     float textSizeTemp4 = textSize / 88;
@@ -246,8 +291,8 @@ public class MyScrollTextView extends SurfaceView implements SurfaceHolder.Callb
 
     protected void onMeasure(int context, int attrs) {
         super.onMeasure(context, attrs);
-        this.width = (float) MeasureSpec.getSize(context) - 25;
-        if (MeasureSpec.getMode(context) != MeasureSpec.EXACTLY) {
+        this.width = (float) View.MeasureSpec.getSize(context) - 25;
+        if (View.MeasureSpec.getMode(context) != View.MeasureSpec.EXACTLY) {
             throw new IllegalStateException("ScrollLayout only can mCurScreen run at EXACTLY mode!");
         } else {
             float width = 0.0F;
@@ -288,10 +333,10 @@ public class MyScrollTextView extends SurfaceView implements SurfaceHolder.Callb
                 }
 
                 Paint.FontMetricsInt fontMetricsInt = this.mPaint.getFontMetricsInt();
-                this.y_coordinate = (float) (MeasureSpec.getSize(attrs) / 2 - (fontMetricsInt.bottom - fontMetricsInt.top) / 2 - fontMetricsInt.top);
+                this.y_coordinate = (float) (View.MeasureSpec.getSize(attrs) / 2 - (fontMetricsInt.bottom - fontMetricsInt.top) / 2 - fontMetricsInt.top);
                 if (Debug.booleanValue()) {
 
-                    Log.d("-----", "y_coordinate:\t" + this.y_coordinate + "\n" + "height:\t" + this.getHeight() + "\n" + "width:\t" + this.getWidth() + "\n" + "measureWidth:\t" + MeasureSpec.getSize(context) + "\n" + "measureHeight:\t" + MeasureSpec.getSize(attrs) + "\n");
+                    Log.d("-----", "y_coordinate:\t" + this.y_coordinate + "\n" + "height:\t" + this.getHeight() + "\n" + "width:\t" + this.getWidth() + "\n" + "measureWidth:\t" + View.MeasureSpec.getSize(context) + "\n" + "measureHeight:\t" + View.MeasureSpec.getSize(attrs) + "\n");
 
                     return;
                 }
@@ -301,12 +346,8 @@ public class MyScrollTextView extends SurfaceView implements SurfaceHolder.Callb
 
     private static final String TAG = "MyTextView2";
 
-    public void setText(String textString) {
-        text = textString;
-    }
 
-
-    private class TextTouchListener implements OnTouchListener {
+    private class TextTouchListener implements View.OnTouchListener {
         private int mMode;
         private PointF startPoint;
         private float start_step;
@@ -323,7 +364,7 @@ public class MyScrollTextView extends SurfaceView implements SurfaceHolder.Callb
                 case MotionEvent.ACTION_DOWN:
                     Log.d(TAG, "onTouch: 0000000000");
                     this.startPoint = new PointF(event.getX(), event.getY());
-                    this.start_step = MyScrollTextView.this.step;
+                    this.start_step = MyScrollTextView2.this.step;
                     this.mMode = 1;
                     return true;
                 case MotionEvent.ACTION_UP:
@@ -337,7 +378,7 @@ public class MyScrollTextView extends SurfaceView implements SurfaceHolder.Callb
                     Log.d(TAG, "onTouch: 22222222222");
 
                     if (this.mMode == 1) {
-                        int direction = MyScrollTextView.this.mDirection;
+                        int direction = MyScrollTextView2.this.mDirection;
                         float i = 0.0F;
                         switch (direction) {
                             case 0:
@@ -353,9 +394,9 @@ public class MyScrollTextView extends SurfaceView implements SurfaceHolder.Callb
                                 i = this.startPoint.x - event.getX();
                         }
 
-                        MyScrollTextView.this.step = i + this.start_step;
+                        MyScrollTextView2.this.step = i + this.start_step;
 
-                        MyScrollTextView.this.invalidate();
+                        MyScrollTextView2.this.invalidate();
                         return true;
                     }
                 default:
@@ -363,127 +404,4 @@ public class MyScrollTextView extends SurfaceView implements SurfaceHolder.Callb
             }
         }
     }
-
-
-    /**
-     * 设置文本字体
-     */
-    public void setTextFont(int a) {
-        Typeface typeFace = Typeface.createFromAsset(getContext().getAssets(), "fonts/" + fonts[a]);
-        mPaint.setTypeface(typeFace);
-    }
-    public static String[] fonts = new String[]{"song.ttf", "kai.ttf"};
-
-
-
-
-
-
-
-    private static Context context;
-    private static String text;//要显示的文字
-    private static int textColor;//文字颜色
-    private static int backColor;//背景色
-    private static int mDirection;//向上滚动0,向左滚动3,向右滚动2,向上滚动1
-    private static int textSize;//文字的大小
-    private static int mScrollSpeed;//2高速,0低速,1中速,3更高速，4更更高速
-    private static int fontFamily;//字体样式
-
-//    public MyScrollTextView(Context context, AttributeSet attrs) {
-//        super(context, attrs);
-//        Log.d(TAG, "MyTextView2: -----------");
-//        mHolder = getHolder();
-//        mHolder.addCallback(this);
-//        mPaint = new Paint();
-//        mPaint.setColor(Color.RED);
-//        mPaint.setTextSize(100);
-//        //设置可获得焦点
-//        setFocusable(true);
-//        setFocusableInTouchMode(true);
-//        //设置常亮
-//        this.mDirection = 3;
-//        this.mScrollSpeed = 3;
-//        this.setOnTouchListener(new MyScrollTextView.TextTouchListener());
-//    }
-
-    protected MyScrollTextView(Builder builder) {
-        super(builder.context);
-        this.context = builder.context;
-        this.text = builder.textString;
-        this.textColor = builder.textColor;
-        this.textSize = builder.textSize;
-        this.mDirection = builder.mDirection;
-        this.mScrollSpeed = builder.mScrollSpeed;
-        this.fontFamily = builder.fontFamily;
-
-        mHolder = getHolder();
-        mHolder.addCallback(this);
-
-        mPaint = new Paint();
-        mPaint.setColor(textColor);
-        mPaint.setTextSize(textSize);
-        setFocusable(true);
-        setFocusableInTouchMode(true);
-
-        setTextFont(fontFamily);
-
-        this.setOnTouchListener(new MyScrollTextView.TextTouchListener());
-    }
-
-    public static class Builder {
-        private Context context;
-        private String textString;
-        private int textColor;
-        private int backColor;
-        private int textSize;
-        private int mDirection;
-        private int mScrollSpeed;
-        private int fontFamily;//字体样式
-
-        public Builder setBackColor(int backColor) {
-            this.backColor = backColor;
-            return this;
-        }
-
-        public Builder setmDirection(int mDirection) {
-            this.mDirection = mDirection;
-            return this;
-        }
-
-        public Builder setmScrollSpeed(int mScrollSpeed) {
-            this.mScrollSpeed = mScrollSpeed;
-            return this;
-        }
-
-        public Builder setTextSize(int textSize) {
-            this.textSize = textSize;
-            return this;
-        }
-
-        public Builder setContext(Context context) {
-            this.context = context;
-            return this;
-        }
-
-        public Builder setTextString(String textString) {
-            this.textString = textString;
-            return this;
-        }
-
-        public Builder setTextColor(int textColor) {
-            this.textColor = textColor;
-            return this;
-        }
-
-        public Builder setFontFamily(int fontFamily) {
-            this.fontFamily = fontFamily;
-            return this;
-        }
-
-        public MyScrollTextView build() {
-            return new MyScrollTextView(this);
-        }
-    }
-
-
 }
