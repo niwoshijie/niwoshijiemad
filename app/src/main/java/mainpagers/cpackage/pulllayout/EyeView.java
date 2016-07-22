@@ -40,7 +40,6 @@ public class EyeView extends FrameLayout {
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     }
 
-
     @Override
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);

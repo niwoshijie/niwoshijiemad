@@ -10,4 +10,6 @@ public class MADConstant {
     public static final String BASIC_PATH = Environment.getExternalStorageDirectory().getAbsolutePath();
     public static final String MAD_PATH = BASIC_PATH+"/mad/";
 
+
+    public static final String NIWOSHIJIEFILE = MAD_PATH + "niwoshijie/";
 }
