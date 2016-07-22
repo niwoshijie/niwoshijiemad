@@ -81,7 +81,8 @@
         <activity android:name="mainpagers.cpackage.t23DesignMode.T23DesignMode" />
         <activity android:name="mainpagers.cpackage.hardware.HardWareDemo" />
         <activity android:name="mainpagers.cpackage.hardware.CramerActivity" />
-        <activity android:name="mainpagers.cpackage.algorithmic.AlgoithmicActivity"></activity>
+        <activity android:name="mainpagers.cpackage.algorithmic.AlgoithmicActivity" />
+        <activity android:name="mainpagers.cpackage.datahand.DataHandActivity"></activity>
     </application>
 
 </manifest>
