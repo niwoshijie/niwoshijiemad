@@ -88,6 +88,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
             mDivider.draw(c);
         }
     }
+
     /**
      *
      * 绘制水平分割线

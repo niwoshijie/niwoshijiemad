@@ -24,6 +24,8 @@ import java.net.URLConnection;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import utils.logs.LogUtils;
+
 public class Utils {
 
     /**

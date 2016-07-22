@@ -31,4 +31,13 @@
         android:layout_height="150dp"
         />
 
+    <views.textviews.VerticalTextView
+        android:id="@+id/vertial_tv_tv"
+        android:layout_width="100dp"
+        android:layout_height="450dp"
+        android:textSize="40sp"
+        android:layout_marginLeft="100dp"
+        android:gravity="bottom|right"
+        android:text="Vertical text"
+        />
 </LinearLayout>

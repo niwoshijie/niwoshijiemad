@@ -26,7 +26,7 @@ import java.util.List;
 import base.APP;
 import liushaobo.mad.R;
 import utils.HandleMessageUtils;
-import utils.LogUtils;
+import utils.logs.LogUtils;
 
 /**
  * Created by LiuShao on 2016/3/17.

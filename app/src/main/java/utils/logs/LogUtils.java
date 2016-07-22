@@ -1,5 +1,5 @@
 
-package utils;
+package utils.logs;
 
 import android.util.Log;
 

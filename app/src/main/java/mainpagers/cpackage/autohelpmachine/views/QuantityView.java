@@ -22,6 +22,7 @@ import liushaobo.mad.R;
 
 /**
  * Quantity view to add and remove quantities
+ * 易购物车使用的view
  */
 public class QuantityView extends LinearLayout implements View.OnClickListener {
 

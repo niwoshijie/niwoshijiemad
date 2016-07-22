@@ -38,6 +38,7 @@ import mainpagers.mpackage.MPager;
 import mainpagers.spackage.SPager;
 import utils.FileUtils;
 import utils.RecyclerViewCacheUtil;
+import utils.logs1.LogcatHelper;
 import views.pagers.LazyViewPager;
 
 /**
@@ -70,6 +71,9 @@ public class FirstInActivity extends AppCompatActivity implements MenuItem.OnMen
         setContentView(R.layout.first_in_main_layout);
         org.xutils.x.view().inject(this);
         context = this;
+
+        /*日志信息*/
+        LogcatHelper.getInstance(this).start();
 
         //创建资源文件夹
         createFolder();

@@ -1,4 +1,4 @@
-package utils;
+package utils.logs;
 
 import android.os.Environment;
 
@@ -10,6 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+
+import utils.Utils;
 
 /**
  *

@@ -18,6 +18,7 @@ import views.textviews.MyScrollTextView;
 import views.textviews.MyScrollTextView2;
 import views.textviews.MyTextView;
 import views.textviews.ScrollTextView;
+import views.textviews.VerticalTextView;
 
 /**
  * Created by LiuShao on 2016/4/19.
@@ -36,6 +37,10 @@ public class TestActivity extends BaseActivity {
 
     @ViewInject(R.id.v_tv_mytv)
     private MyTextView v_tv_mytv;
+
+    @ViewInject(R.id.vertial_tv_tv)
+    private VerticalTextView vertial_tv_tv;
+
 
     private Context context;
     private String testString = "设置当文字过长时,该控件该如何显示。有如下值设置：”start”—–省略号显示在开头；”end”——省略号显示在结尾；”middle”—-省略号显示在中间；”marquee” ——以跑马灯的方式显示(动画横向移动)";
@@ -70,6 +75,7 @@ public class TestActivity extends BaseActivity {
         v_tv_mytv.setScrollSpeed(3f);
         v_tv_mytv.setText(testString);
 
+        vertial_tv_tv.setText("这是倒立的文本信息");
 
         scrollTextView = new MyScrollTextView.Builder()
                 .setmScrollSpeed(3)
