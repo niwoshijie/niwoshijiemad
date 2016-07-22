@@ -25,7 +25,6 @@ public class LogDumper extends Thread  {
             out = new FileOutputStream(new File(dir, "GPS-"
                     + MyDate.getFileName() + ".log"));
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 

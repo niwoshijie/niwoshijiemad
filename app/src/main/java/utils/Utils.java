@@ -505,7 +505,6 @@ public class Utils {
      * @return
      */
     public static int getWinWidth(Activity context) {
-        // TODO Auto-generated constructor stub
         return context.getWindowManager().getDefaultDisplay().getWidth();
     }
 
@@ -515,7 +514,6 @@ public class Utils {
      * @return
      */
     public static int getWinHight(Activity context) {
-        // TODO Auto-generated constructor stub
         return context.getWindowManager().getDefaultDisplay().getHeight();
     }
 
@@ -571,7 +569,6 @@ public class Utils {
     /**
      * decode js用escape编码的字符串
      * @method: unEscape
-     * @description: TODO
      * @author: DongFuhai
      * @param src
      * @return
