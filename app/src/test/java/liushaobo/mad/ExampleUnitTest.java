@@ -2,6 +2,10 @@ package liushaobo.mad;
 
 import org.junit.Test;
 
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
 import mainpagers.cpackage.t23DesignMode.abstractfactory.CarFactory;
 import mainpagers.cpackage.t23DesignMode.abstractfactory.QQFactory;
 import mainpagers.cpackage.t23DesignMode.abstractfactory.SUVFactory;
@@ -40,7 +44,6 @@ public class ExampleUnitTest {
 
 
 
-    @Test
     public void testAA(){
         CarFactory factory = new QQFactory();
         factory.createBrake().brake();
@@ -49,6 +52,29 @@ public class ExampleUnitTest {
 
         CarFactory factory1 = new SUVFactory();
         factory1.createEngine().engine();
+    }
+
+    @Test
+    public void TestRound(){
+        long a = Math.round(11.5);
+        System.out.print("a"+a);
+        long b = Math.round(-11.5);
+        System.out.print("b"+b);
+
+        Set<String> set = new HashSet<String>();
+        set.add("a");
+        set.add("b");
+        set.add("c");
+        set.add("d");
+        set.add("d");
+        set.add("d");
+        set.add("d");
+        set.add("uuu");
+        set.add("e");
+        Iterator<String> it = set.iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
 
     }
 
