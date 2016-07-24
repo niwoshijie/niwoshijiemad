@@ -26,7 +26,6 @@ import liushaobo.mad.R;
 
 /**
  * http://blog.csdn.net/lmj623565791/article/details/42160391
- *
  * @author zhy
  */
 public class MyViewPagerIndicator extends LinearLayout {
@@ -102,10 +101,10 @@ public class MyViewPagerIndicator extends LinearLayout {
         // 获得自定义属性，tab的数量
         TypedArray a = context.obtainStyledAttributes(attrs,
                 R.styleable.MyViewPagerIndicator);
-        mTabVisibleCount = a.getInt(R.styleable.MyViewPagerIndicator_item_count,
-                COUNT_DEFAULT_TAB);
-        if (mTabVisibleCount < 0)
+        mTabVisibleCount = a.getInt(R.styleable.MyViewPagerIndicator_item_count,COUNT_DEFAULT_TAB);
+        if (mTabVisibleCount < 0){
             mTabVisibleCount = COUNT_DEFAULT_TAB;
+        }
         a.recycle();
 
         // 初始化画笔
@@ -127,7 +126,6 @@ public class MyViewPagerIndicator extends LinearLayout {
         canvas.translate(mInitTranslationX + mTranslationX, getHeight() + 1);
         canvas.drawPath(mPath, mPaint);
         canvas.restore();
-
         super.dispatchDraw(canvas);
     }
 
@@ -150,16 +148,13 @@ public class MyViewPagerIndicator extends LinearLayout {
 
     /**
      * 设置可见的tab的数量
-     *
      * @param count
      */
     public void setVisibleTabCount(int count) {
         this.mTabVisibleCount = count;
     }
-
     /**
      * 设置tab的标题内容可选，可以自己在布局文件中写死
-     *
      * @param datas
      */
     public void setTabItemTitles(List<String> datas) {
@@ -175,7 +170,6 @@ public class MyViewPagerIndicator extends LinearLayout {
             // 设置item的click事件
             setItemClickEvent();
         }
-
     }
 
     /**
@@ -228,7 +222,6 @@ public class MyViewPagerIndicator extends LinearLayout {
                     onPageChangeListener.onPageScrolled(position,
                             positionOffset, positionOffsetPixels);
                 }
-
             }
 
             @Override
@@ -331,19 +324,16 @@ public class MyViewPagerIndicator extends LinearLayout {
          *  0-1:position=0 ;1-0:postion=0;
          * </pre>
          */
-        // 不断改变偏移量，invalidate
+        // 不断改变偏移量，invalidate/l
         mTranslationX = getWidth() / mTabVisibleCount * (position + offset);
 
         int tabWidth = getScreenWidth() / mTabVisibleCount;
         // 容器滚动，当移动到倒数最后一个的时候，开始滚动
-        if (offset > 0 && position >= (mTabVisibleCount - 2)
-                && getChildCount() > mTabVisibleCount) {
+        if (offset > 0 && position >= (mTabVisibleCount - 2) && getChildCount() > mTabVisibleCount) {
             if (mTabVisibleCount != 1) {
-                this.scrollTo((position - (mTabVisibleCount - 2)) * tabWidth
-                        + (int) (tabWidth * offset), 0);
-            } else
-            // 为count为1时 的特殊处理
-            {
+                this.scrollTo((position - (mTabVisibleCount - 2)) * tabWidth + (int) (tabWidth * offset), 0);
+            } else// 为count为1时 的特殊处理
+                 {
                 this.scrollTo(position * tabWidth + (int) (tabWidth * offset), 0);
             }
         }
@@ -366,15 +356,13 @@ public class MyViewPagerIndicator extends LinearLayout {
 
         for (int i = 0; i < cCount; i++) {
             View view = getChildAt(i);
-            LayoutParams lp = (LayoutParams) view
-                    .getLayoutParams();
+            LayoutParams lp = (LayoutParams) view.getLayoutParams();
             lp.weight = 0;
             lp.width = getScreenWidth() / mTabVisibleCount;
             view.setLayoutParams(lp);
         }
         // 设置点击事件
         setItemClickEvent();
-
     }
 
     /**

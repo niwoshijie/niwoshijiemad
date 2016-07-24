@@ -22,7 +22,6 @@ public class MyPageIndicator extends FragmentActivity {
     private FragmentPagerAdapter mAdapter;
     private ViewPager mViewPager;
     private List<String> mDatas = Arrays.asList("短信1", "短信2", "短信3", "短信4", "短信5", "短信6", "短信7", "短信8", "短信9");
-//	private List<String> mDatas = Arrays.asList("短信", "收藏", "推荐");
     private MyViewPagerIndicator mIndicator;
 
     @Override
@@ -37,6 +36,7 @@ public class MyPageIndicator extends FragmentActivity {
         mViewPager.setAdapter(mAdapter);
         //设置关联的ViewPager
         mIndicator.setViewPager(mViewPager, 0);
+
     }
 
     private void initDatas() {
