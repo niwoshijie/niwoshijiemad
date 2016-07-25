@@ -4,7 +4,6 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.ListView;
 
-
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -66,8 +65,6 @@ public class MyPullRreshViews extends ListView {
     }
 
 
-
-
     /**
      * 下拉刷新
      */
@@ -121,8 +118,6 @@ public class MyPullRreshViews extends ListView {
         switch (ev.getAction()){
             case MotionEvent.ACTION_DOWN:
                 touchY = (int) ev.getY();
-
-
 
                 break;
             case MotionEvent.ACTION_MOVE:
