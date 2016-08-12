@@ -145,7 +145,6 @@ public class FirstInActivity extends AppCompatActivity implements MenuItem.OnMen
         FileUtils.createFolder(MADConstant.MAD_PATH);
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (menuItem == null) {
@@ -157,7 +156,6 @@ public class FirstInActivity extends AppCompatActivity implements MenuItem.OnMen
             menuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
             menuItem.setOnMenuItemClickListener(FirstInActivity.this);
         }
-
         return true;
     }
 
@@ -192,8 +190,7 @@ public class FirstInActivity extends AppCompatActivity implements MenuItem.OnMen
             }
 
             @Override
-            public void onPageScrollStateChanged(int state) {
-            }
+            public void onPageScrollStateChanged(int state) {}
 
             @Override
             public void onPageSelected(int position) {

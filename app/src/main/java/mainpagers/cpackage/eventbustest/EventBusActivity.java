@@ -2,6 +2,7 @@ package mainpagers.cpackage.eventbustest;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -22,9 +23,13 @@ public class EventBusActivity extends BaseActivity {
     @ViewInject(R.id.tv_event_bus_test)
     private TextView tv_event_bus_test;
 
+    @ViewInject(R.id.btn_event)
+    private Button btn_event;
+
     @Override
     public void initView() {
         x.view().inject(this);
+
     }
 
     @Override
@@ -34,7 +39,13 @@ public class EventBusActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+
     }
+
+    public void click(View view){
+
+    }
+
 
     //有以下四个ThreadMode：
     //PostThread：事件的处理在和事件的发送在相同的进程，所以事件处理时间不应太长，不然影响事件的发送线程，而这个线程可能是UI线程。对应的函数名是onEvent。
@@ -72,7 +83,6 @@ public class EventBusActivity extends BaseActivity {
     public void onEventMainThread(Integer event) {
 //        mShowInfo2.setText(event+"");
     }
-
 
     @Override
     protected void onStop() {

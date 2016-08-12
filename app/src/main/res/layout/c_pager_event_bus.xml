@@ -5,7 +5,7 @@
     android:gravity="center">
 
     <Button
-        android:id="@+id/btn_event_"
+        android:id="@+id/btn_event"
         android:text="event_bus_test"
         android:textColor="@color/md_red_100"
         android:background="@drawable/btn_ok_background"
@@ -14,7 +14,7 @@
 
 
     <TextView
-        android:layout_below="@id/btn_event_"
+        android:layout_below="@id/btn_event"
         android:id="@+id/tv_event_bus_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

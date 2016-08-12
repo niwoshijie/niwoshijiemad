@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MAD.iml" filepath="$PROJECT_DIR$/MAD.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/lsbskin/lsbskin.iml" filepath="$PROJECT_DIR$/lsbskin/lsbskin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/niwoshijiemad.iml" filepath="$PROJECT_DIR$/niwoshijiemad.iml" />
       <module fileurl="file://$PROJECT_DIR$/xutils/xutils.iml" filepath="$PROJECT_DIR$/xutils/xutils.iml" />
     </modules>
   </component>

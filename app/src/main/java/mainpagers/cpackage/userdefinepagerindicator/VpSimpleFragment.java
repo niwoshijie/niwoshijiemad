@@ -55,7 +55,6 @@ public class VpSimpleFragment extends Fragment {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-
                     }
                 }.start();
             }

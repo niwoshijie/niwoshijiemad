@@ -36,7 +36,6 @@ public class MyPageIndicator extends FragmentActivity {
         mViewPager.setAdapter(mAdapter);
         //设置关联的ViewPager
         mIndicator.setViewPager(mViewPager, 0);
-
     }
 
     private void initDatas() {
