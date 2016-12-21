@@ -19,6 +19,4 @@ public class MyViewPager extends LazyViewPager {
     }
 
 
-
-
 }

@@ -25,7 +25,4 @@ public abstract class BasePager {
         view = initView();//拿到实例化的view
     }
 
-
-
-
 }

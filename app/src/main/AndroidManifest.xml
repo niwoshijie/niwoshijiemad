@@ -82,7 +82,8 @@
         <activity android:name="mainpagers.cpackage.hardware.HardWareDemo" />
         <activity android:name="mainpagers.cpackage.hardware.CramerActivity" />
         <activity android:name="mainpagers.cpackage.algorithmic.AlgoithmicActivity" />
-        <activity android:name="mainpagers.cpackage.datahand.DataHandActivity"></activity>
+        <activity android:name="mainpagers.cpackage.datahand.DataHandActivity" />
+        <activity android:name="mainpagers.cpackage.pullrefresh.PullRefreshActivity"></activity>
     </application>
 
 </manifest>

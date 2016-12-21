@@ -4,8 +4,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static com.blankj.utilcode.utils.UnitUtils.*;
-
 /**
  * <pre>
  *     author: Blankj
@@ -298,12 +296,12 @@ public class TimeUtils {
      */
     private static long milliseconds2Unit(long milliseconds, int unit) {
         switch (unit) {
-            case MSEC:
-            case SEC:
-            case MIN:
-            case HOUR:
-            case DAY:
-                return Math.abs(milliseconds) / unit;
+//            case MSEC:
+//            case SEC:
+//            case MIN:
+//            case HOUR:
+//            case DAY:
+//                return Math.abs(milliseconds) / unit;
         }
         return -1;
     }

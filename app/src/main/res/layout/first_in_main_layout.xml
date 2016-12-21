@@ -116,9 +116,5 @@
                 android:layout_gravity="right|bottom"/>
 
         </FrameLayout>
-
-
     </RelativeLayout>
-
-
 </android.support.design.widget.CoordinatorLayout>

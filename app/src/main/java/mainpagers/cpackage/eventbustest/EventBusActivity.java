@@ -59,7 +59,6 @@ public class EventBusActivity extends BaseActivity {
         Log.e("What", "[onEvent]My Thread is " + Thread.currentThread().getName());
     }
 
-    @Event(value = {R.id.btn_event_}, type = View.OnClickListener.class)
     private void OnClickEvent(View view) {
         EventBus.getDefault().post(new MyEvent());//事件的处理在和事件的发送在相同的进程，
     }

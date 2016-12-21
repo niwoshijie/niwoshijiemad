@@ -1,6 +1,7 @@
 package mainpagers.cpackage.stytlespackage;
 
 import android.graphics.Color;
+import android.net.wifi.ScanResult;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
@@ -16,16 +17,21 @@ import android.text.style.SuperscriptSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+import java.util.List;
+
 import base.BaseActivity;
 import liushaobo.mad.R;
 import utils.TextStyleUtils;
-
 /**
  * Created by LiuShao on 2016/2/24.
  */
@@ -38,6 +44,15 @@ public class StytleActivity extends BaseActivity{
 
     @ViewInject(R.id.gif_imageview)
     private ImageView gif_imageview;
+
+    @ViewInject(R.id.wifi_connect)
+    private Spinner wifi_connect;
+
+    @ViewInject(R.id.ev_putin_pwd)
+    private EditText ev_putin_pwd;
+
+    @ViewInject(R.id.connect_wifi)
+    private Button connect_wifi;
 
     @Override
     public void initView() {
@@ -55,6 +70,25 @@ public class StytleActivity extends BaseActivity{
         playText();
         aabcc();
         x.image().bind(gif_imageview,getAssets()+"/maoyeye.gif");
+
+
+        final WifiAdmin wa = new WifiAdmin(this);
+        wa.openWifi();
+        wa.startScan();
+        final List<ScanResult> scanResult = wa.getWifiList();
+
+        WifiListAdapter wifiListAdapter = new WifiListAdapter(scanResult,this);
+        wifi_connect.setAdapter(wifiListAdapter);
+
+        connect_wifi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String edit = ev_putin_pwd.getText().toString();
+                ScanResult scanResult1 = (ScanResult) wifi_connect.getSelectedItem();
+                String ssid =  scanResult1.SSID;
+                wa.addNetwork(wa.CreateWifiInfo(ssid, edit, 3));
+            }
+        });
     }
 
     private void playText() {
