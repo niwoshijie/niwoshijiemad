@@ -28,7 +28,7 @@ public class ComeInActivity extends BaseActivity {
     }
 
     @Override
-    public void setListener() {}
+    public void initValue() {}
 
     @Override
     protected void initData() {

@@ -63,7 +63,7 @@ public class QuickActivity extends BaseActivity {
     }
 
     @Override
-    public void setListener() {
+    public void initValue() {
 
     }
 

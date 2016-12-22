@@ -57,7 +57,7 @@ public class TestActivity extends BaseActivity {
     }
 
     @Override
-    public void setListener() {}
+    public void initValue() {}
 
     @Override
     protected void initData() {

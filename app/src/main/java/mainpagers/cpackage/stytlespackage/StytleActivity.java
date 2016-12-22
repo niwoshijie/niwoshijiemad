@@ -61,7 +61,7 @@ public class StytleActivity extends BaseActivity{
     }
 
     @Override
-    public void setListener() {
+    public void initValue() {
 
     }
 

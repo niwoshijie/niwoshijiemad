@@ -1,4 +1,4 @@
-package base;
+package mainpagers.spackage.refreshrecycleview;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
+import base.Iteminfo;
 import liushaobo.mad.R;
 
-public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.AppHolder>{
+public class HorizentalAdapter extends RecyclerView.Adapter<HorizentalAdapter.AppHolder>{
 
     private Context context;
 
@@ -28,17 +28,18 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.AppHolde
     }
 
     private OnItemClickLinster onItemClickLinster;
+
     public void setOnItemClickLinster(OnItemClickLinster onItemClickLinster) {
         this.onItemClickLinster = onItemClickLinster;
     }
 
-    public RecycleAdapter(Context context) {
+    public HorizentalAdapter(Context context) {
         this.context = context;
     }
 
     @Override
     public AppHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.main_list_item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.horizental_recycle_item, parent, false);
         return new AppHolder(view);
     }
 

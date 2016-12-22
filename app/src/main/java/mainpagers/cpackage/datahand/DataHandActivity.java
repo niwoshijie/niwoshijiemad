@@ -10,7 +10,7 @@ public class DataHandActivity extends BaseActivity {
     }
 
     @Override
-    public void setListener() {
+    public void initValue() {
 
     }
 

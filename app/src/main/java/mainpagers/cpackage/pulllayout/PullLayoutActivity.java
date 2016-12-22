@@ -14,7 +14,7 @@ public class PullLayoutActivity extends BaseActivity{
     }
 
     @Override
-    public void setListener() {
+    public void initValue() {
 
     }
 

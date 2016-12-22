@@ -75,7 +75,7 @@ public class AppInforMation extends BaseActivity{
     }
 
     @Override
-    public void setListener() {}
+    public void initValue() {}
 
     private UsbReceiver usbReceiver;
 

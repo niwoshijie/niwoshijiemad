@@ -17,6 +17,7 @@ import mainpagers.cpackage.stytlespackage.StytleActivity;
 import mainpagers.cpackage.t23DesignMode.T23DesignMode;
 import mainpagers.cpackage.thriddeffect.TouchRotateActivity;
 import mainpagers.cpackage.userdefinepagerindicator.MyPageIndicator;
+import mainpagers.spackage.refreshrecycleview.RecycleViewRefresh;
 
 /**
  * Created by LiuShao on 2016/1/26.
@@ -49,5 +50,20 @@ public interface ContantValue {
             HardWareDemo.class,
             PullRefreshActivity.class
     };
+
+    String[] CitemName = {"横向刷新的recycleview", "均衡器", "控件案例", "系统通信", "3D旋转",
+            "一些样式案列", "手机内部信息", "快捷直发", "自定义导航条","上拉特效",
+            "自助机","测试","23种设计模式","eventbus","硬件调用测试","下拉刷新"};
+    int[] CimageList = {
+            R.mipmap.circle, R.mipmap.circle, R.mipmap.circle,
+            R.mipmap.circle, R.mipmap.circle, R.mipmap.circle,
+            R.mipmap.circle, R.mipmap.circle, R.mipmap.circle,
+            R.mipmap.circle,R.mipmap.circle,R.mipmap.circle,
+            R.mipmap.circle,R.mipmap.circle,R.mipmap.circle,
+            R.mipmap.circle};
+    Class[] Cobjects = {
+            RecycleViewRefresh.class
+    };
+
 
 }

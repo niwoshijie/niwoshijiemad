@@ -68,7 +68,7 @@ public class MediaFocusActivity extends BaseActivity {
     }
 
     @Override
-    public void setListener() {}
+    public void initValue() {}
 
     @Override
     public void initData() {

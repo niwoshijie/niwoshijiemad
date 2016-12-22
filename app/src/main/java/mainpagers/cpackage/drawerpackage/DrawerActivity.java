@@ -64,7 +64,7 @@ public class DrawerActivity extends BaseActivity{
     }
 
     @Override
-    public void setListener() {
+    public void initValue() {
         initPermission();
     }
 

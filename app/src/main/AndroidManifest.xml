@@ -54,6 +54,7 @@
         <activity android:name="mainpagers.cpackage.userdefinepagerindicator.MyPageIndicator" />
         <activity android:name="mainpagers.cpackage.pulllayout.PullLayoutActivity" />
         <activity android:name="mainpagers.cpackage.eventbustest.EventBusActivity" />
+        <activity android:name="mainpagers.spackage.refreshrecycleview.RecycleViewRefresh"/>
         <activity
             android:name="mainpagers.cpackage.selfserviceapp.ybselfservice.SelfServiceActivity"
             android:launchMode="singleTask" />

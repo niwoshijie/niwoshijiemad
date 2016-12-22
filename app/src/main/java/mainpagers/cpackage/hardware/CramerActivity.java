@@ -55,7 +55,7 @@ public class CramerActivity extends BaseActivity implements SurfaceHolder.Callba
     }
 
     @Override
-    public void setListener() {}
+    public void initValue() {}
 
     @Override
     protected void initData() {

@@ -16,6 +16,9 @@ import mainpagers.cpackage.selfserviceapp.ybselfservice.AppActivityManager;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
+
+    protected Activity mContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +31,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 //        }
 
         initView();
+        mContext = this;
         initData();
         AppActivityManager.getAppActivityManager().addActivity(this);
 //      initAllData();
@@ -41,7 +45,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 设置控件的监听
      */
-    public abstract void setListener();
+    public abstract void initValue();
 
     /**
      * 初始化数据
@@ -98,7 +102,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode){
             case KeyEvent.KEYCODE_BACK:
-                setListener();
+
                 break;
         }
 

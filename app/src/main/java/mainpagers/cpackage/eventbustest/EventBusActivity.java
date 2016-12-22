@@ -6,8 +6,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 import org.xutils.view.annotation.ContentView;
-import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
@@ -29,11 +29,10 @@ public class EventBusActivity extends BaseActivity {
     @Override
     public void initView() {
         x.view().inject(this);
-
     }
 
     @Override
-    public void setListener() {
+    public void initValue() {
         EventBus.getDefault().register(this);//该activity被注册成一个订阅者
     }
 
@@ -43,7 +42,7 @@ public class EventBusActivity extends BaseActivity {
     }
 
     public void click(View view){
-
+        EventBus.getDefault().post(new MyEvent());//事件的处理在和事件的发送在相同的进程，
     }
 
 
@@ -54,34 +53,17 @@ public class EventBusActivity extends BaseActivity {
     //Async：事件处理会在单独的线程中执行，主要用于在后台线程中执行耗时操作，每个事件会开启一个线程（有线程池），但最好限制线程的数目。
 
     //接收事件的回调
-
+    @Subscribe
     public void onEvent(MyEvent event) {
         Log.e("What", "[onEvent]My Thread is " + Thread.currentThread().getName());
     }
 
-    private void OnClickEvent(View view) {
-        EventBus.getDefault().post(new MyEvent());//事件的处理在和事件的发送在相同的进程，
-    }
-
+    @Subscribe
     public void onEventMainThread(MyEvent event) {
         Log.e("What", "[onEventMainThreadMy] Thread is " + Thread.currentThread().getName());
         tv_event_bus_test.setText(Thread.currentThread().getName());
     }
 
-    //事件1接收者：在主线程接收
-    public void onEvent(String event) {
-//        mShowInfo1.setText(event);
-    }
-
-    //事件2接收者：在主线程接收自定义MsgBean消息
-    public void onEvent(MsgBean event) {
-//        mShowInfo21.setText(event.getMsg());
-    }
-
-    //事件3接收者：在主线程接收
-    public void onEventMainThread(Integer event) {
-//        mShowInfo2.setText(event+"");
-    }
 
     @Override
     protected void onStop() {

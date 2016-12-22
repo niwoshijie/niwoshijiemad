@@ -45,7 +45,7 @@ public class CPager extends BasePager {
 
         RecycleAdapter recycleAdapter = new RecycleAdapter(context);
         recyclerView.setAdapter(recycleAdapter);
-        recycleAdapter.setRecorse(ContantValue.itemName, ContantValue.imageList);
+        recycleAdapter.setRecorse(ContantValue.itemName, ContantValue.CimageList);
 
         recycleAdapter.setOnItemClickLinster(new RecycleAdapter.OnItemClickLinster() {
             @Override
