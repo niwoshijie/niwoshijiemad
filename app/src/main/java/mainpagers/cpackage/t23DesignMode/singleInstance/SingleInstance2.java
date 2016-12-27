@@ -6,7 +6,6 @@ package mainpagers.cpackage.t23DesignMode.singleInstance;
 public class SingleInstance2 {
     private static SingleInstance2 singleInstance2 = null;
     private SingleInstance2(){}
-
     public static SingleInstance2 getSingleInstance2(){
         if(singleInstance2 == null){
             synchronized (SingleInstance2.class){
